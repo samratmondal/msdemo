@@ -1,5 +1,6 @@
 package gdit.com;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,9 +13,11 @@ import java.net.UnknownHostException;
  */
 @RestController
 @RequestMapping("/api")
+@ConfigurationProperties(prefix="mbi")
 public class BMIToHCINConverter {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/hcinForMBI", produces = "text/plain")
+    @RequestMapping(method = RequestMethod.GET, value = "/hcinForMBI",
+            produces = "application/json")
     public String hcinForMBI(String MBI) {
         String hostname = null;
 
@@ -25,7 +28,7 @@ public class BMIToHCINConverter {
         }
 
         /*
-            Don't laugh. This is meant to be a demo. The actiual code needs
+            Don't laugh. This is meant to be a demo. The actual code needs
             to add the real implementation.
          */
         return "HCIN for MBI " + hostname;
