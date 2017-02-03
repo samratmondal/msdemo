@@ -14,7 +14,7 @@ import java.net.UnknownHostException;
 @RestController
 @RequestMapping("/api")
 @ConfigurationProperties(prefix="mbi")
-public class BMIToHCINConverter {
+public class MBIHCINConverter {
 
     @RequestMapping(method = RequestMethod.GET, value = "/hcinForMBI",
             produces = "application/json")
